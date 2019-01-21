@@ -15,7 +15,8 @@ The PyNUT module claims to be compatible with python3
 * [Installation](#installation)
    * [Select your driver](#select-your-driver)
    * [Configure the UPS](#configure-the-ups)
-   * [Create Udev USB Rule](#create-udev-usb-rule)
+   * [Create udev USB Rule](#create-udev-usb-rule)
+   * [Setup NUT Server](#setup-nut-server)
 * [To Do](#to-do)
 * [Sources](#sources)
 
@@ -49,7 +50,7 @@ Once it is open in the editor you need to add in the following lines:
 Repalce everything within {} with the details you want keeping in mind that the {driver} is the driver you found from NUT's website.
 Close and save the file (ctrl-x, y, enter if using nano) or (ctrl-s,ctrl-q if using leafpad).
 
-### Create Udev USB Rule
+### Create udev USB Rule
 From a terminal window enter the following:
 ```console
 lsusb
@@ -78,10 +79,10 @@ Once it is open in the editor you need to add in the following lines:
 ```
 SYSFS{idVendor}=='0065', SYSFS{idProduct}=='5161', MODE='0666'
 ```
-substituting in your own device ID inside the quotes for {idVender} and {idProduct}.
+substituting in your own device ID inside the quotes for {idVender} and {idProduct}.   
 Close and save the file (ctrl-x, y, enter if using nano) or (ctrl-s,ctrl-q if using leafpad).
 
-### Setup Server
+### Setup NUT Server
 Run the following command from a terminal window:
 ###### Using GUI over TeamViewer or VNC Viewer:
 
@@ -96,7 +97,7 @@ Once it is open in the editor you need to add in the following lines:
 ```
 MODE=standalone
 ```
-If you are only going to need the NUT server on your local system then `standalone` is fine however if you have other devices connected to the UPS that need to safely shutdown then you need to have it set to `netserver`
+If you are only going to need the NUT server on your local system then `standalone` is fine however if you have other devices connected to the UPS that need to safely shutdown then you need to have it set to `netserver`.   
 Close and save the file (ctrl-x, y, enter if using nano) or (ctrl-s,ctrl-q if using leafpad).
 ## To Do
 - [ ] Move this section out to a separate file
@@ -105,3 +106,4 @@ Close and save the file (ctrl-x, y, enter if using nano) or (ctrl-s,ctrl-q if us
 
 ## Sources
 * [Raspberry Pi Home Server v2: Network UPS Tools](https://melgrubb.com/2016/12/11/rphs-v2-ups/)
+* [Raspberry Pi UPS monitor (with Nginx web monitoring)](https://loganmarchione.com/2017/02/raspberry-pi-ups-monitor-with-nginx-web-monitoring/)

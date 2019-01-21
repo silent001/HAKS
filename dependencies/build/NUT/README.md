@@ -47,5 +47,10 @@ Once it is open in the editor you need to add in the following lines:
 ```
 Repalce everything within {} with the details you want keeping in mind that the {driver} is the driver you found from NUT's website.
 
+## To Do
+- [ ] Move this section out to a separate file
+- [ ] Create a bash script to automate most of the install and setup process
+- [ ] Complete the README.md to document a manual installation of the NUT system
+
 ## Sources
 * [Raspberry Pi Home Server v2: Network UPS Tools](https://melgrubb.com/2016/12/11/rphs-v2-ups/)

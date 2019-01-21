@@ -74,7 +74,7 @@ sudo leafpad /etc/nut/upsmon.conf
 > ```
 > MONITOR friendly name@localhost 1 upsmon_local local1 master
 > ```
-##### ~~ownership and permissions~~__Dont do this at all__
+##### ~~ownership and permissions~~ __Dont do this at all__
 ```diff
 - chown -R root:nut /etc/nut/
 - chmod -R 640 /etc/nut/

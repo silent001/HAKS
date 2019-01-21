@@ -4,10 +4,12 @@ sudo apt-get update && sudo apt-get install nut nut-client nut-monitor nut-serve
 sudo leafpad /etc/nut/ups.conf
 ```
 ##### Select right Driver
+> ```
 > [friendly name(no Spaces)]
 >    driver = "driver"
 >    port = auto
 >    desc = "Description type"
+> ```
 ```
 lsusb
 ```
@@ -16,7 +18,9 @@ _ie ID 0665:5161_
 ```
 sudo leafpad /etc/udev/rules.d/98 -friendly name(no Spaces).rules
 ```
+> ```
 > SYSFS{idVendor}=='0065', SYSFS{idProduct}=='5161', MODE='0666'
+> ```
 ```
 sudo systemctl start nut-driver
 sudo systemctl status nut-driver
@@ -27,24 +31,29 @@ sudo systemctl status nut-driver
 sudo leafpad /etc/nut/upsd.conf
 ```
 ##### Add LISTEN directive
+> ```
 > LISTEN 127.0.0.1 3493
+> ```
 ```
 sudo leafpad /etc/nut/upsd.users
 ```
 #### Add admin and user
+> ```
 > [admin]
 >        password = admin1
 >        actions = SET
 >        instcmds = ALL
 > [upsmon_local]
 >         password  = local1
- >        upsmon master
+>         upsmon master
+> ```
 ##### Set mode
 ```
 sudo leafpad /etc/nut/nut.conf
 ```
->MODE=standalone
-
+> ```
+> MODE=standalone
+> ```
 ##### Reboot now for changes to take affect
 ```
 sudo reboot
@@ -62,8 +71,9 @@ sudo upsc {friendly name@localhost}
 ```
 sudo leafpad /etc/nut/upsmon.conf
 ```
+> ```
 > MONITOR friendly name@localhost 1 upsmon_local local1 master
-
+> ```
 ##### __Dont do this at all__
 #ownership and permissions
 # chown -R root:nut /etc/nut/
@@ -87,4 +97,6 @@ sudo apt-get update && sudo apt-get install nut-cgi fcgiwrap -y
 ```
 sudo leafpad /etc/nut/hosts.conf
 ```
+> ```
 > MONITOR friendly name@localhost "Description type"
+> ```

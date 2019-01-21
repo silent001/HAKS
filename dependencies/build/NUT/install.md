@@ -1,4 +1,4 @@
-# SOURCE:https://loganmarchione.com/2017/02/raspberry-pi-ups-monitor-with-nginx-web-monitoring/
+# [SOURCE:](https://loganmarchione.com/2017/02/raspberry-pi-ups-monitor-with-nginx-web-monitoring/)
 ```
 sudo apt-get update && sudo apt-get install nut nut-client nut-monitor nut-server -y
 sudo leafpad /etc/nut/ups.conf
@@ -74,8 +74,7 @@ sudo leafpad /etc/nut/upsmon.conf
 > ```
 > MONITOR friendly name@localhost 1 upsmon_local local1 master
 > ```
-##### __Dont do this at all__
-~~##### ownership and permissions~~
+##### ~~ownership and permissions~~__Dont do this at all__
 ```diff
 - chown -R root:nut /etc/nut/
 - chmod -R 640 /etc/nut/

@@ -48,7 +48,7 @@ Once it is open in the editor you need to add in the following lines:
    desc = "{UPS description}"
 ```
 ###### eg.
-```console
+```
 [havok]
    driver = "blazer_usb"
    port = auto

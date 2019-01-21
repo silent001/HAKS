@@ -47,7 +47,14 @@ Once it is open in the editor you need to add in the following lines:
    port = auto
    desc = "{UPS description}"
 ```
-Repalce everything within {} with the details you want keeping in mind that the {driver} is the driver you found from NUT's website.
+###### eg.
+```console
+[havok]
+   driver = "blazer_usb"
+   port = auto
+   desc = "ME-2000-VU 2000VA/1200W Line Interactive UPS"
+```
+Repalce everything within {} with the details you want keeping in mind that the {driver} is the driver you found from NUT's website. The name for your UPS needs to be noted down for the rest of the steps.   
 Close and save the file (ctrl-x, y, enter if using nano) or (ctrl-s,ctrl-q if using leafpad).
 
 ### Create udev USB Rule
@@ -57,23 +64,31 @@ lsusb
 ```
 The output should be something similar to the below:
 ```console
-pi@MonsterPi:~ $ lsusb
+pi@raspberrypi:~ $ lsusb
 Bus 001 Device 004: ID 0665:5161 Cypress Semiconductor USB to Serial
 Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
 Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. SMC9514 Hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-pi@MonsterPi:~ $ 
+pi@raspberrypi:~ $ 
 ```
 Look at the ID that looks like it could be your UPS. Mine is this line `Bus 001 Device 004: ID 0665:5161 Cypress Semiconductor USB to Serial` so the details I need from here is `0665:5161`.
 Once you have the ID noted for your UPS then run the following command:
 ###### Using GUI over TeamViewer or VNC Viewer:
 
 ```console
-sudo leafpad /etc/udev/rules.d/98 -friendly name(no Spaces).rules
+sudo leafpad /etc/udev/rules.d/98-friendly name(no Spaces).rules
+```
+###### eg.
+```console
+sudo leafpad /etc/udev/rules.d/98-havok.rules
 ```
 ###### Using ssh over putty or similar:
 ```console
 sudo nano /etc/udev/rules.d/98 -friendly name(no Spaces).rules
+```
+###### eg.
+```console
+sudo leafpad /etc/udev/rules.d/98-havok.rules
 ```
 Once it is open in the editor you need to add in the following lines:
 ```
@@ -87,7 +102,7 @@ Run the following command from a terminal window:
 ###### Using GUI over TeamViewer or VNC Viewer:
 
 ```console
-sudo leafpad /etc/udev/rules.d/98 -friendly name(no Spaces).rules
+sudo leafpad /etc/nut/nut.conf
 ```
 ###### Using ssh over putty or similar:
 ```console

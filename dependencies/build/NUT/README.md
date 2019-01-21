@@ -16,6 +16,7 @@ The PyNUT module claims to be compatible with python3
    * [Select your driver](#select-your-driver)
    * [Configure the UPS](#configure-the-ups)
    * []()
+* [To Do](#to-do)
 * [Sources](#sources)
 
 ## Installation

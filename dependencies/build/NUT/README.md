@@ -11,6 +11,13 @@ This will create a symbolic link from where the apt package PyNUT file has been 
 
 The PyNUT module claims to be compatible with python3
 
+##### Table of Contents
+* [Installation](#installation)
+   * [Select your driver](#select-your-driver)
+   * [Configure the UPS](#configure-the-ups)
+   * []()
+* [Sources](#sources)
+
 ## Installation
 From a terminal window enter the following:
 

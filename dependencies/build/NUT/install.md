@@ -75,9 +75,11 @@ sudo leafpad /etc/nut/upsmon.conf
 > MONITOR friendly name@localhost 1 upsmon_local local1 master
 > ```
 ##### __Dont do this at all__
-#ownership and permissions
-# chown -R root:nut /etc/nut/
-# chmod -R 640 /etc/nut/
+~~##### ownership and permissions~~
+```diff
+- chown -R root:nut /etc/nut/
+- chmod -R 640 /etc/nut/
+```
 
 ##### Start client and check status
 ```

@@ -36,24 +36,25 @@ function CreateUPS() {
 	fi
 }
 function USBList() {
+	# TODO: Attempt tp auto detect USB for UPS using a snap of USB device before and after pluging in the UPS. 
+	# Default to below if detection fails for some reason
 	while [ -z "$device_id" ]; do
 		device_id=$(
 		declare -a array=()
 		while read foo{,,,,} id dsc;do
 			array+=($id "$dsc")
 		  done < <(lsusb)
-		whiptail --menu 'Select USB device' 20 76 12 "${array[@]}" 3>&1 1>&2 2>&3) || \
+		whiptail --title "${title}" --backtitle "${backtitle}" --menu 'Select USB device' ${r} ${c} 12 "${array[@]}" 3>&1 1>&2 2>&3) || \
 		CancelInstall
 	done
 }
 function NUTMode() {
 	echo "Set MODE=$1 inside nut.conf"
-	#Handle it for everytype we are running
 	# Avalible modes are none, standalone, netserver and netclient.
 	if [ "$1" = "standalone" ] || [ "$1" = "netserver" ]; then
 		USBList
 		# If USB item is found then only continue else exit
-		# Check if apt-get upgrade has recently been run
+		# TODO: Check if apt-get upgrade has recently been run
 		echo "sudo apt-get update && sudo apt-get install nut nut-client nut-monitor nut-server -y"
 		CreateUPS
 		echo "sudo leafpad /etc/udev/rules.d/98-${UPSName}.rules"
